@@ -33,3 +33,6 @@ diretrizes:
 
   
 Primeiro, faremos uma migração "lift-and-shift"; a adaptação para Kubernetes virá depois.
+
+# Passo 1: Completar a migração
+
