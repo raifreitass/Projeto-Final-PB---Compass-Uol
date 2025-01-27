@@ -65,12 +65,8 @@ Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados qu
 - Backend: Servidor com 4 GB RAM, 2 Core CPU, 5 GB de armazenamento, utilizando Nginx.
 - Banco de Dados: Servidor MySQL com 10 GB RAM, 3 Core CPU, 500 GB de dados.
 
-1.2 Definir a Janela de Manutenção:
 
-- Determine o tempo de inatividade aceitável.
-- Planeje rollback para restaurar os servidores originais em caso de falhas.
-
-1.3 Configurar o Ambiente AWS:
+1.2 Configurar o Ambiente AWS:
 
 Crie uma VPC de Staging e uma VPC Final:
 - VPC Staging: Para testes antes de ativar os recursos na VPC final.
