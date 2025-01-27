@@ -135,3 +135,8 @@ Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o
 
 ![image](https://github.com/user-attachments/assets/3c9617f7-d3b3-4e59-8375-fca8f6373e01)
 
+# Passo 2: Modernização/Kubernetes 
+
+Nesta etapa, a infraestrutura migrada na Fase 1 será modernizada com foco em práticas cloud-native, utilizando o Amazon EKS para orquestração de contêineres e otimizando a arquitetura para escalabilidade, confiabilidade, eficiência e segurança.
+
+
