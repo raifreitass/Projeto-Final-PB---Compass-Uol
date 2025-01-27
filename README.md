@@ -139,4 +139,49 @@ Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o
 
 Nesta etapa, a infraestrutura migrada na Fase 1 será modernizada com foco em práticas cloud-native, utilizando o Amazon EKS para orquestração de contêineres e otimizando a arquitetura para escalabilidade, confiabilidade, eficiência e segurança.
 
+1. Criação do Ambiente Kubernetes:
+Criação do Cluster EKS: Utilizar o eksctl ou o Console da AWS para criar um cluster EKS com os seguintes recursos:
+
+- Nós: Escolher o tipo de instância adequado à carga de trabalho (e.g., m5.large) e configurar o auto-scaling para escalar automaticamente o cluster.
+
+- Subnets: Criar subnets privadas para os nós e subnets públicas para o load balancer.
+- IAM Roles: Criar roles para os nós do EKS com as permissões necessárias para acessar outros serviços da AWS (e.g., S3, RDS).
+- Configuração do Network Ingress Controller: Instalar um ingress controller (e.g., NGINX Ingress Controller) para expor os serviços do Kubernetes para o mundo externo.
+
+2. Containerização das Aplicações:
+
+- Criação de Dockerfiles: Criar Dockerfiles para cada componente da aplicação, incluindo o frontend, backend e qualquer outro serviço.
+- Construção das Imagens: Utilizar o AWS CodeBuild para construir as imagens Docker e enviá-las para o Amazon ECR.
+- Configuração de Variáveis de Ambiente: Definir as variáveis de ambiente necessárias para cada container (e.g., conexões com o banco de dados, chaves de API).
+  
+3. Criação dos Manifests Kubernetes:
+
+- Deployment: Definir os deployments para cada serviço, especificando o número de réplicas, as portas, as imagens Docker e os recursos de CPU e memória.
+- Service: Criar serviços para expor os deployments internamente ao cluster.
+-Ingress: Criar ingresses para expor os serviços externamente, utilizando o ingress controller.
+
+4. Migração do Banco de Dados:
+  
+- AWS DMS: Utilizar o AWS DMS para migrar o banco de dados MySQL para o RDS.
+- Configuração do RDS: Criar um instance RDS MySQL em uma configuração Multi-AZ para alta disponibilidade.
+- Atualização das Conexões: Atualizar as conexões da aplicação para apontarem para o novo endpoint do RDS.
+
+5. Implementação da CI/CD:
+
+- AWS CodePipeline: Configurar um pipeline de CI/CD para automatizar o processo de build, teste e deploy das aplicações.
+- AWS CodeBuild: Utilizar o CodeBuild para construir as imagens Docker e executar testes.
+- AWS CodeDeploy: Utilizar o CodeDeploy para realizar os deployments no Kubernetes.
+
+6. Segurança:
+
+- IAM: Utilizar o IAM para controlar o acesso aos recursos da AWS.
+- Security Groups: Configurar os security groups para permitir apenas o tráfego necessário entre os componentes.
+- WAF: Utilizar o AWS WAF para proteger a aplicação contra ataques web.
+- KMS: Utilizar o KMS para criptografar dados sensíveis.
+- Secrets Manager: Utilizar o Secrets Manager para armazenar credenciais de forma segura.
+
+8. Monitoramento e Observabilidade:
+
+CloudWatch: Utilizar o CloudWatch para monitorar o desempenho da aplicação e gerar alertas.
+Amazon ECS Anywhere: Integrar o cluster EKS com o Amazon ECS Anywhere para obter visibilidade e gerenciamento centralizados.
 
