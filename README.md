@@ -57,9 +57,8 @@ Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados qu
 
 
 ### Passo a Passo
-1. Planejamento e Preparação.
    
-1.1 Catalogar os Recursos On-Premises:
+1. Catalogar os Recursos On-Premises:
 
 - Frontend: Servidor com 2 GB RAM, 1 Core CPU, 5 GB de armazenamento.
 - Backend: Servidor com 4 GB RAM, 2 Core CPU, 5 GB de armazenamento, utilizando Nginx.
