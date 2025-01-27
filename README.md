@@ -42,18 +42,43 @@ Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados qu
 ## Visão Geral da Arquitetura
 1. Serviços Utilizados:
 
-- AWS Application Migration Service (MGN): Migra os servidores Frontend (React) e Backend (Nginx + APIs) para instâncias EC2 na AWS.
-- AWS Database Migration Service (DMS): Migra o banco de dados MySQL para o Amazon RDS, garantindo a integridade e continuidade dos dados.
-- Amazon Elastic Block Store (EBS): Armazena os volumes persistentes das instâncias EC2.
-- Amazon S3: Armazena objetos estáticos (imagens, vídeos, arquivos).
-- Amazon Route 53: Gerencia DNS e direciona tráfego para recursos na AWS.
-- Amazon Virtual Private Cloud (VPC): Isola a infraestrutura e gerencia subnets públicas e privadas.
-- AWS Backup: Garante backups automáticos dos recursos.
+- **AWS Application Migration Service (MGN):**
+
+Migra os servidores Frontend (React) e Backend (Nginx + APIs) para instâncias EC2 na AWS, utilizando o AWS Replication Agent para replicar dados do ambiente on-premises para a VPC de Staging antes de movê-los para a VPC Final.
+
+- **AWS Database Migration Service (DMS):**
+
+Migra o banco de dados MySQL para o Amazon RDS, garantindo a integridade e continuidade dos dados.
+
+- **Amazon Elastic Block Store (EBS):**
+
+Armazena os volumes persistentes das instâncias EC2.
+
+- **Amazon S3:**
+
+Armazena objetos estáticos (imagens, vídeos, arquivos).
+
+- **Amazon Route 53:**
+
+Gerencia DNS e direciona tráfego para recursos na AWS.
+
+- **Amazon Virtual Private Cloud (VPC):**
+
+Isola a infraestrutura e gerencia subnets públicas e privadas.
+
+- **AWS Backup:**
+
+Garante backups automáticos dos recursos.
 
 2. Processo de Migração:
 
-- Banco de Dados: A migração do MySQL é feita primeiro para o RDS usando o DMS, garantindo que os endpoints já estejam configurados para a nova infraestrutura.
-- Servidores Frontend e Backend: O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar dados para uma VPC de Staging. Após os testes, os dados são movidos para a VPC Final.
+- **Banco de Dados:**
+
+A migração do MySQL é feita primeiro para o RDS usando o DMS, garantindo que os endpoints já estejam configurados para a nova infraestrutura.
+
+- **Servidores Frontend e Backend:**
+
+O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar dados para uma VPC de Staging. Após os testes, os dados são movidos para a VPC Final.
 
 
 ### Passo a Passo
