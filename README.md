@@ -171,12 +171,5 @@ Criação do Cluster EKS: Utilizar o eksctl ou o Console da AWS para criar um cl
 
 - IAM: Utilizar o IAM para controlar o acesso aos recursos da AWS.
 - Security Groups: Configurar os security groups para permitir apenas o tráfego necessário entre os componentes.
-- WAF: Utilizar o AWS WAF para proteger a aplicação contra ataques web.
-- KMS: Utilizar o KMS para criptografar dados sensíveis.
-- Secrets Manager: Utilizar o Secrets Manager para armazenar credenciais de forma segura.
 
-8. Monitoramento e Observabilidade:
-
-CloudWatch: Utilizar o CloudWatch para monitorar o desempenho da aplicação e gerar alertas.
-Amazon ECS Anywhere: Integrar o cluster EKS com o Amazon ECS Anywhere para obter visibilidade e gerenciamento centralizados.
 
