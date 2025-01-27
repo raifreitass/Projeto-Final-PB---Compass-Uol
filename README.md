@@ -56,8 +56,9 @@ Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados qu
 - Servidores Frontend e Backend: O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar dados para uma VPC de Staging. Após os testes, os dados são movidos para a VPC Final.
 
 
-#### Passo a Passo
-1. Planejamento e Preparação
+### Passo a Passo
+1. Planejamento e Preparação.
+   
 1.1 Catalogar os Recursos On-Premises:
 
 - Frontend: Servidor com 2 GB RAM, 1 Core CPU, 5 GB de armazenamento.
@@ -129,3 +130,8 @@ Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o
 - Frontend e Backend funcionando em instâncias EC2.
 - Objetos estáticos armazenados no Amazon S3.
 - Segurança e backups configurados.
+
+# Diagrama de Migração
+
+![image](https://github.com/user-attachments/assets/3c9617f7-d3b3-4e59-8375-fca8f6373e01)
+
