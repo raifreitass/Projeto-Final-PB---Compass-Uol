@@ -21,8 +21,8 @@ RAM, 2 Core CPU);
 ![image](https://github.com/user-attachments/assets/de6faf1a-8d69-4d7d-9ff5-ef9f9a667466)
 
 
-## Desafio
-Seguir as melhores práticas arquitetura em Cloud AWS, a nova arquitetura deve seguir as seguintes
+## Desafio 
+Seguir as melhores práticas para modernizar esse sistema para a AWS, a nova arquitetura deve seguir as seguintes
 diretrizes:
 
 - Ambiente Kubernetes;
