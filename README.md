@@ -178,3 +178,16 @@ Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com 
 
 A segurança da aplicação é garantida pelo AWS WAF e CloudFront, que ajudam a proteger contra ameaças e melhorar a performance com cache de conteúdo estático. O monitoramento de métricas, logs e performance é feito pelo Amazon CloudWatch, e o gerenciamento de permissões é realizado com o AWS IAM, garantindo o acesso controlado aos recursos. As regras de segurança são configuradas para garantir que apenas os serviços necessários possam se comunicar entre si.
 
+(foto do diagrama)
+
+# Estimativa de custos com AWS Calculator 
+
+- Custo da migração:
+- Custo Mensal:
+
+(link da calculadora)
+
+- Custo da modernização:
+- Custo Mensal:
+
+(link da calculadora)
