@@ -153,19 +153,16 @@ Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com 
 - Criar roles para os nós do EKS com as permissões necessárias para acessar outros serviços da AWS (e.g., S3, RDS).
 
   
-- Configuração do Network Ingress Controller: Instalar um ingress controller (e.g., NGINX Ingress Controller) para expor os serviços do Kubernetes para o mundo externo.
+**2. Containerização das Aplicações:**
 
-2. Containerização das Aplicações:
-
-- Criação de Dockerfiles: Criar Dockerfiles para cada componente da aplicação, incluindo o frontend, backend e qualquer outro serviço.
+- Criação de Dockerfiles: Criar Dockerfiles para os componente da aplicação, incluindo o frontend, backend e qualquer outro serviço.
 - Construção das Imagens: Utilizar o AWS CodeBuild para construir as imagens Docker e enviá-las para o Amazon ECR.
-- Configuração de Variáveis de Ambiente: Definir as variáveis de ambiente necessárias para cada container (e.g., conexões com o banco de dados, chaves de API).
   
-3. Criação dos Manifests Kubernetes:
+**3. Criação dos Manifests Kubernetes:**
 
 - Deployment: Definir os deployments para cada serviço, especificando o número de réplicas, as portas, as imagens Docker e os recursos de CPU e memória.
 - Service: Criar serviços para expor os deployments internamente ao cluster.
--Ingress: Criar ingresses para expor os serviços externamente, utilizando o ingress controller.
+- Ingress: Criar ingresses para expor os serviços externamente, utilizando o ingress controller.
 
 4. Migração do Banco de Dados:
   
