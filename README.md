@@ -35,7 +35,7 @@ diretrizes:
 Primeiro, faremos uma migração "lift-and-shift"; a adaptação para Kubernetes virá depois.
 
 # Passo 1: Completar a migração
-- Ferramentas AWS para Migração "Lift-and-Shift" ou "As-Is":
+### Ferramentas AWS para Migração "Lift-and-Shift" ou "As-Is":
 
 Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados que simplificam e tornam o processo mais eficiente, garantindo a continuidade dos sistemas e a segurança dos dados.  O AWS Application Migration Service (MGN) e o AWS Database Migration Service (DMS) são ferramentas-chave nesse cenário, permitindo migrar aplicações e bancos de dados com o mínimo de impacto e sem a necessidade de alterações significativas.
 
