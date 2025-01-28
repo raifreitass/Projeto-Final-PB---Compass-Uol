@@ -139,7 +139,7 @@ Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o
 
 Nesta etapa, a infraestrutura migrada na Fase 1 será modernizada com foco em práticas cloud-native, utilizando o Amazon EKS para orquestração de contêineres e otimizando a arquitetura para escalabilidade, confiabilidade, eficiência e segurança.
 
-**1. Criação do Ambiente Kubernetes:**
+## 1. Criação do Ambiente Kubernetes
 **Criação do Cluster EKS:**
 Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com nós configurados adequadamente para atender à carga de trabalho. Será feito uso do auto-scaling para garantir a escalabilidade do cluster, com as instâncias EC2 sendo configuradas conforme as necessidades da aplicação.
 
