@@ -116,7 +116,7 @@ As subnets públicas terão acesso direto à internet através de um **Internet 
 
 
 **Migração do Banco de Dados**
-- Crie a instância RDS MySQL e ative backups automáticos. Use o AWS DMS para migrar os dados, com Full Load na carga inicial e CDC para replicação contínua.
+- Crie a instância RDS MySQL e ative backups automáticos. Use o AWS DMS para migrar os dados, com Full Load na carga inicial e CDC para a cópia em tempo real.
 
 **Migração do Frontend e Backend**
 
