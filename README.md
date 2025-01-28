@@ -194,11 +194,11 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 # Estimativa de custos com AWS Calculator 
 
 - Custo da migração:
-- Custo Mensal:
+- Custo mensal:
 
 (link da calculadora)
 
 - Custo da modernização:
-- Custo Mensal:
+- Custo mensal:
 
 (link da calculadora)
