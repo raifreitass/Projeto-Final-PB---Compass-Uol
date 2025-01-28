@@ -110,8 +110,10 @@ Utilizada para a migração inicial, hospedando o Replication Server, responsáv
 As subnets públicas terão acesso direto à internet através de um **Internet Gateway (IGW)**, enquanto as instâncias privadas que precisarem de acesso externo serão conectadas via **NAT Gateway**.
 
 **Grupos de Segurança**
-- Banco de Dados (Porta 3306): O acesso ao RDS será restrito apenas para o Backend EC2, garantindo que somente esse serviço tenha permissão para se conectar.
-- Tráfego HTTP/HTTPS (Portas 80/443): As instâncias Frontend e Backend terão acesso liberado para essas portas, permitindo o tráfego web, especialmente se um Load Balancer estiver em uso para gerenciar as requisições.
+- O acesso ao RDS MySQL será exclusivo para o Backend EC2, garantindo que apenas esse serviço consiga interagir com o banco de dados.
+
+- Para o Frontend e Backend, a comunicação nas portas 80/443 (HTTP/HTTPS) será viabilizada, para garantir que a comunicação com a web ocorra sem problemas. Se um Load Balancer estiver em uso, ele gerenciará o tráfego entre essas instâncias, permitindo a distribuição eficiente de requisições.
+
 
 **Migração do Banco de Dados**
 - Provisionar Amazon RDS (MySQL): Criar uma instância RDS para o banco de dados MySQL, escolhendo a versão compatível e configurando o backup automático para alta disponibilidade.
