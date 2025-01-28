@@ -91,7 +91,8 @@ O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar da
 
 ### Provisionamento de Infraestrutura na AWS
 
- **Criar VPC de Staging** A VPC temporária será utilizada para a fase inicial de migração, onde o Replication Server receberá dados dos servidores on-premises (via AWS Replication Agent na porta TCP 1500).
+ **Criar VPC de Staging** 
+ - A VPC temporária será utilizada para a fase inicial de migração, onde o Replication Server receberá dados dos servidores on-premises (via AWS Replication Agent na porta TCP 1500).
 
   
  **Criar VPC Final**
