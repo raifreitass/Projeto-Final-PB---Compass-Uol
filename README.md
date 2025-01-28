@@ -83,11 +83,10 @@ O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar da
 
 ## Passo a Passo de Migração para AWS
 
-- **Inventário de Serviços:** Catalogar os recursos e serviços on-premises, incluindo:
-- **Frontend:** Aplicação React
-- **Backend:** Servidor Nginx com APIs
-- **Banco de Dados:** MySQL
-- **Configurações:** Versões de sistemas operacionais, bibliotecas utilizadas e portas de rede essenciais (como TCP 443, 1500, 3306).
+- **Inventário de Serviços:** Configurações do ambiente on-premises, incluindo:
+**Frontend:** Aplicação React (TCP 443)
+**Backend:** Servidor Nginx com APIs (TCP 443, TCP 1500)
+**Banco de Dados:** MySQL (TCP 3306)
 
 ### Provisionamento de Infraestrutura na AWS
 
