@@ -40,7 +40,7 @@ Primeiro, faremos uma migração "lift-and-shift"; a adaptação para Kubernetes
 Para realizar migrações nesses modelos, a AWS oferece serviços gerenciados que simplificam e tornam o processo mais eficiente, garantindo a continuidade dos sistemas e a segurança dos dados.  O AWS Application Migration Service (MGN) e o AWS Database Migration Service (DMS) são ferramentas-chave nesse cenário, permitindo migrar aplicações e bancos de dados com o mínimo de impacto e sem a necessidade de alterações significativas.
 
 ## Visão Geral da Arquitetura
-1. Serviços Utilizados:
+### 1. Serviços Utilizados:
 
 - **AWS Application Migration Service (MGN):**
 
@@ -70,7 +70,7 @@ Isola a infraestrutura e gerencia subnets públicas e privadas.
 
 Garante backups automáticos dos recursos.
 
-2. Processo de Migração:
+### 2. Processo de Migração:
 
 - **Banco de Dados:**
 
@@ -81,67 +81,44 @@ A migração do MySQL é feita primeiro para o RDS usando o DMS, garantindo que 
 O AWS MGN utiliza agentes instalados nos servidores on-premises para replicar dados para uma VPC de Staging. Após os testes, os dados são movidos para a VPC Final.
 
 
-### Passo a Passo
-   
-1. Catalogar os Recursos On-Premises:
+## Passo a Passo de Migração para AWS
 
-- Frontend: Servidor com 2 GB RAM, 1 Core CPU, 5 GB de armazenamento.
-- Backend: Servidor com 4 GB RAM, 2 Core CPU, 5 GB de armazenamento, utilizando Nginx.
-- Banco de Dados: Servidor MySQL com 10 GB RAM, 3 Core CPU, 500 GB de dados.
+- **Inventário de Serviços:** Catalogar os recursos e serviços on-premises, incluindo:
+- **Frontend:** Aplicação React
+- **Backend:** Servidor Nginx com APIs
+- **Banco de Dados:** MySQL
+- **Configurações:** Versões de sistemas operacionais, bibliotecas utilizadas e portas de rede essenciais (como TCP 443, 1500, 3306).
 
+### Provisionamento de Infraestrutura na AWS
 
-1.2 Configurar o Ambiente AWS:
+ **Criar VPC de Staging** A VPC temporária será utilizada para a fase inicial de migração, onde o Replication Server receberá dados dos servidores on-premises (via AWS Replication Agent na porta TCP 1500).
 
-Crie uma VPC de Staging e uma VPC Final:
-- VPC Staging: Para testes antes de ativar os recursos na VPC final.
-- VPC Final: Configurada com subnets públicas (Frontend e Load Balancer) e subnets privadas (Backend e RDS).
-
-2. Migração do Banco de Dados
-2.1 Provisionar Amazon RDS:
-
-- Configure um banco de dados MySQL Multi-AZ para garantir alta disponibilidade.
-- Utilize backup automático para recuperação de dados.
-
-2.2 Configurar AWS DMS:
-
-*Crie endpoints:*
-
-- Source Endpoint: Banco MySQL on-premises.
-- Target Endpoint: RDS MySQL.
   
-*Migre:*
-- Full Load: Migração inicial completa dos dados.
-- CDC (Change Data Capture): Replica as alterações em tempo real.
-
-3. Migração dos Servidores Frontend e Backend
-3.1 Instalar AWS Replication Agent:
-
-- Instale o agente nos servidores on-premises.
-- Configure para enviar dados para o Replication Server na VPC Staging.
-
-3.2 Configurar o AWS MGN:
-
-- O Replication Server converte os dados em volumes EBS na AWS.
-- Gere AMIs e instâncias EC2 correspondentes:
-- Frontend: 1 instância EC2.
-- Backend: 1 instância EC2 com acesso ao RDS e S3.
+ **Criar VPC Final**
+- Subnets Públicas: Configuradas para hospedar o Frontend EC2 e o Load Balancer.
+- Subnets Privadas: Para o Backend EC2 e o RDS.
+- Gateway de Internet (IGW): Para as subnets públicas, permitindo acesso externo, enquanto o NAT Gateway será utilizado para instâncias privadas que precisem acessar a internet.
 
 
-4. Configuração de Recursos Complementares
-4.1 DNS e Balanceamento de Carga:
-   
-- Configure o Amazon Route 53 para direcionar o tráfego para o Load Balancer (caso utilizado) ou diretamente para as instâncias EC2.
+**Grupos de Segurança**
+- Banco de Dados (Porta 3306): O acesso ao RDS será restrito apenas para o Backend EC2, garantindo que somente esse serviço tenha permissão para se conectar.
+- Tráfego HTTP/HTTPS (Portas 80/443): As instâncias Frontend e Backend terão acesso liberado para essas portas, permitindo o tráfego web, especialmente se um Load Balancer estiver em uso para gerenciar as requisições.
 
-4.2 Segurança:
+**Migração do Banco de Dados**
+- Provisionar Amazon RDS (MySQL): Criar uma instância RDS para o banco de dados MySQL, escolhendo a versão compatível e configurando o backup automático para alta disponibilidade.
 
-Configure Grupos de Segurança:
-- Porta 443: Permita acesso HTTPS ao Frontend.
-- Porta 3306: Restrinja o acesso ao RDS para o Backend.
-- Utilize AWS WAF para proteger o Frontend contra ataques comuns.
 
-4.3 Backup:
+**Configurar AWS DMS; Criar endpoints para a migração dos dados:**
+- Source Endpoint: Banco de dados MySQL on-premises.
+- Target Endpoint: Banco de dados MySQL na instância RDS.
+- Realizar a migração de dados com a abordagem de Full Load para a carga inicial e CDC (Change Data Capture) para replicação contínua.
 
-- Configure políticas no AWS Backup para EC2, RDS e volumes EBS.
+**Migração do Frontend e Backend**
+
+- Instalar AWS Replication Agent on-premises: Configurar o agente para enviar dados e virtualizações para o Replication Server na VPC de Staging.
+- Configuração do AWS MGN: Usar o Replication Server para criar AMIs e gerar instâncias EC2 correspondentes para o Frontend e o Backend na VPC Final.
+- Volumes EBS: Associar os volumes de dados a cada instância EC2 migrada para garantir a persistência dos dados.
+
 
 #### Resultados
 Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o seguinte estado:
