@@ -186,7 +186,9 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 - Banco de dados MySQL funcionando no Amazon RDS com alta disponibilidade.
 - Arquivos estáticos armazenados no Amazon S3 com acesso seguro.
 - Logs e métricas monitorados no Amazon CloudWatch.
-- Segurança reforçada com WAF, CloudFront e Secrets Manager.
+- Segurança reforçada com AWS WAF e CloudFront.
+
+
 
 (foto do diagrama)
 
@@ -202,3 +204,5 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 - Custo mensal:
 
 (link da calculadora)
+
+
