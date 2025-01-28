@@ -112,7 +112,7 @@ As subnets públicas terão acesso direto à internet através de um **Internet 
 **Grupos de Segurança**
 - O acesso ao RDS MySQL será exclusivo para o Backend EC2, garantindo que apenas esse serviço consiga interagir com o banco de dados.
 
-- Para o Frontend e Backend, a comunicação nas portas 80/443 (HTTP/HTTPS) será viabilizada, para garantir que a comunicação com a web ocorra sem problemas. Se um Load Balancer estiver em uso, ele gerenciará o tráfego entre essas instâncias, permitindo a distribuição eficiente de requisições.
+- Para o Frontend e Backend, a comunicação na porta 443 (HTTP/HTTPS) será viabilizada, para garantir que a comunicação com a web ocorra sem problemas. Se um Load Balancer estiver em uso, ele gerenciará o tráfego entre essas instâncias, permitindo a distribuição eficiente de requisições.
 
 
 **Migração do Banco de Dados**
