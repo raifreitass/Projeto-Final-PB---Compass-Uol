@@ -161,24 +161,20 @@ Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com 
 **3. Criação dos Manifests Kubernetes:**
 
 - Deployment: Definir os deployments para cada serviço, especificando o número de réplicas, as portas, as imagens Docker e os recursos de CPU e memória.
-- Service: Criar serviços para expor os deployments internamente ao cluster.
-- Ingress: Criar ingresses para expor os serviços externamente, utilizando o ingress controller.
+- Service: Crie serviços para permitir a comunicação interna entre os componentes no cluster.
+- Ingress: Utilize o Ingress Controller para expor os serviços externamente, configurando rotas e associando um Load Balancer para gerenciar o tráfego.
 
-4. Migração do Banco de Dados:
-  
-- AWS DMS: Utilizar o AWS DMS para migrar o banco de dados MySQL para o RDS.
-- Configuração do RDS: Criar um instance RDS MySQL em uma configuração Multi-AZ para alta disponibilidade.
-- Atualização das Conexões: Atualizar as conexões da aplicação para apontarem para o novo endpoint do RDS.
-
-5. Implementação da CI/CD:
+**Implementação da CI/CD:**
 
 - AWS CodePipeline: Configurar um pipeline de CI/CD para automatizar o processo de build, teste e deploy das aplicações.
 - AWS CodeBuild: Utilizar o CodeBuild para construir as imagens Docker e executar testes.
 - AWS CodeDeploy: Utilizar o CodeDeploy para realizar os deployments no Kubernetes.
 
-6. Segurança:
+**4. Banco de Dados e Armazenamento:**
+- O banco de dados MySQL, que foi migrado para o Amazon RDS, continua a ser utilizado, com configurações Multi-AZ para garantir alta disponibilidade. O armazenamento de arquivos estáticos é feito no Amazon S3, utilizando políticas de IAM para restringir o acesso aos pods que precisam interagir com os dados.
 
-- IAM: Utilizar o IAM para controlar o acesso aos recursos da AWS.
-- Security Groups: Configurar os security groups para permitir apenas o tráfego necessário entre os componentes.
 
+**5. Segurança e Monitoramento:**
+
+A segurança da aplicação é garantida pelo AWS WAF e CloudFront, que ajudam a proteger contra ameaças e melhorar a performance com cache de conteúdo estático. O monitoramento de métricas, logs e performance é feito pelo Amazon CloudWatch, e o gerenciamento de permissões é realizado com o AWS IAM, garantindo o acesso controlado aos recursos. As regras de segurança são configuradas para garantir que apenas os serviços necessários possam se comunicar entre si.
 
