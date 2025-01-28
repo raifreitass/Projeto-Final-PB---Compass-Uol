@@ -100,15 +100,14 @@ Porta TCP 3306: Comunicação com o banco de dados (RDS).
 
 ### Provisionamento de Infraestrutura na AWS
 
- **Criar VPC de Staging** 
- - A VPC temporária será utilizada para a fase inicial de migração, onde o Replication Server receberá dados dos servidores on-premises (via AWS Replication Agent na porta TCP 1500).
+** VPC de Staging:**
+Utilizada para a migração inicial, hospedando o Replication Server, responsável por receber dados dos servidores on-premises através do AWS Replication Agent (porta TCP 1500).
 
-  
- **Criar VPC Final**
-- Subnets Públicas: Configuradas para hospedar o Frontend EC2 e o Load Balancer.
+**VPC Final:**
+- Subnets Públicas: Onde serão alocados o Frontend EC2 e o Load Balancer.
 - Subnets Privadas: Para o Backend EC2 e o RDS.
-- Gateway de Internet (IGW): Para as subnets públicas, permitindo acesso externo, enquanto o NAT Gateway será utilizado para instâncias privadas que precisem acessar a internet.
 
+As subnets públicas terão acesso direto à internet através de um **Internet Gateway (IGW)**, enquanto as instâncias privadas que precisarem de acesso externo serão conectadas via **NAT Gateway**.
 
 **Grupos de Segurança**
 - Banco de Dados (Porta 3306): O acesso ao RDS será restrito apenas para o Backend EC2, garantindo que somente esse serviço tenha permissão para se conectar.
