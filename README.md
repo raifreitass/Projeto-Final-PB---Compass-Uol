@@ -100,7 +100,7 @@ Porta TCP 3306: Comunicação com o banco de dados (RDS).
 
 ### Provisionamento de Infraestrutura na AWS
 
-** VPC de Staging:**
+**VPC de Staging:**
 Utilizada para a migração inicial, hospedando o Replication Server, responsável por receber dados dos servidores on-premises através do AWS Replication Agent (porta TCP 1500).
 
 **VPC Final:**
@@ -139,13 +139,20 @@ Após a conclusão da Fase 1, a infraestrutura terá sido replicada na AWS com o
 
 Nesta etapa, a infraestrutura migrada na Fase 1 será modernizada com foco em práticas cloud-native, utilizando o Amazon EKS para orquestração de contêineres e otimizando a arquitetura para escalabilidade, confiabilidade, eficiência e segurança.
 
-1. Criação do Ambiente Kubernetes:
-Criação do Cluster EKS: Utilizar o eksctl ou o Console da AWS para criar um cluster EKS com os seguintes recursos:
+**1. Criação do Ambiente Kubernetes:**
+**Criação do Cluster EKS:**
+Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com nós configurados adequadamente para atender à carga de trabalho. Será feito uso do auto-scaling para garantir a escalabilidade do cluster, com as instâncias EC2 sendo configuradas conforme as necessidades da aplicação.
 
-- Nós: Escolher o tipo de instância adequado à carga de trabalho (e.g., m5.large) e configurar o auto-scaling para escalar automaticamente o cluster.
+- Configure o número de nodes necessários para o frontend e backend (recomenda-se instâncias m5.large).
 
-- Subnets: Criar subnets privadas para os nós e subnets públicas para o load balancer.
-- IAM Roles: Criar roles para os nós do EKS com as permissões necessárias para acessar outros serviços da AWS (e.g., S3, RDS).
+**Configure as subnets públicas e privadas na VPC:**
+- Subnets públicas para o Load Balancer.
+- Subnets privadas para os pods e banco de dados.
+
+**IAM Roles:**
+- Criar roles para os nós do EKS com as permissões necessárias para acessar outros serviços da AWS (e.g., S3, RDS).
+
+  
 - Configuração do Network Ingress Controller: Instalar um ingress controller (e.g., NGINX Ingress Controller) para expor os serviços do Kubernetes para o mundo externo.
 
 2. Containerização das Aplicações:
