@@ -204,6 +204,6 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 
 - Etapa 2:
 
-![image](https://github.com/user-attachments/assets/6c991574-7f76-48c7-955b-12941301773e)
+![image](https://github.com/user-attachments/assets/6c991574-7f76-48c7-955b-12941301773e
 
 
