@@ -116,19 +116,11 @@ As subnets públicas terão acesso direto à internet através de um **Internet 
 
 
 **Migração do Banco de Dados**
-- Provisionar Amazon RDS (MySQL): Criar uma instância RDS para o banco de dados MySQL, escolhendo a versão compatível e configurando o backup automático para alta disponibilidade.
-
-
-**Configurar AWS DMS; Criar endpoints para a migração dos dados:**
-- Source Endpoint: Banco de dados MySQL on-premises.
-- Target Endpoint: Banco de dados MySQL na instância RDS.
-- Realizar a migração de dados com a abordagem de Full Load para a carga inicial e CDC (Change Data Capture) para replicação contínua.
+- Crie a instância RDS MySQL e ative backups automáticos. Use o AWS DMS para migrar os dados, com Full Load na carga inicial e CDC para replicação contínua.
 
 **Migração do Frontend e Backend**
 
-- Instalar AWS Replication Agent on-premises: Configurar o agente para enviar dados e virtualizações para o Replication Server na VPC de Staging.
-- Configuração do AWS MGN: Usar o Replication Server para criar AMIs e gerar instâncias EC2 correspondentes para o Frontend e o Backend na VPC Final.
-- Volumes EBS: Associar os volumes de dados a cada instância EC2 migrada para garantir a persistência dos dados.
+- Instale o AWS Replication Agent nos servidores on-premises para enviar dados ao Replication Server. Com o AWS MGN, converta os dados em AMIs e gere instâncias EC2 para o Frontend e Backend na VPC Final. Associe volumes EBS às instâncias para garantir a persistência dos dados.
 
 
 #### Resultados
