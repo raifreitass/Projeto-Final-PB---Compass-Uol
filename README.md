@@ -178,7 +178,18 @@ Utilize o console AWS ou ferramentas como eksctl para provisionar o cluster com 
 
 A segurança da aplicação é garantida pelo AWS WAF e CloudFront, que ajudam a proteger contra ameaças e melhorar a performance com cache de conteúdo estático. O monitoramento de métricas, logs e performance é feito pelo Amazon CloudWatch, e o gerenciamento de permissões é realizado com o AWS IAM, garantindo o acesso controlado aos recursos. As regras de segurança são configuradas para garantir que apenas os serviços necessários possam se comunicar entre si.
 
+#### Resultados
+Após a conclusão da etapa de modernização, a infraestrutura estará no seguinte estado:
+
+- Serviços orquestrados no Amazon EKS com ambientes isolados por namespaces.
+- CI/CD implementado, automatizando build, teste e deploy.
+- Banco de dados MySQL funcionando no Amazon RDS com alta disponibilidade.
+- Arquivos estáticos armazenados no Amazon S3 com acesso seguro.
+- Logs e métricas monitorados no Amazon CloudWatch.
+- Segurança reforçada com WAF, CloudFront e Secrets Manager.
+
 (foto do diagrama)
+
 
 # Estimativa de custos com AWS Calculator 
 
