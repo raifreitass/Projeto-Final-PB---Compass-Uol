@@ -219,7 +219,7 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 
 ## Fase 2: Modernização com Kubernetes
 
-- Orquestração: Amazon EKS, Fargate, ECR
+- Orquestração: Amazon EKS (com EC2) e ECR
 - CI/CD: AWS CodePipeline, CodeBuild, CodeDeploy
 - Segurança & Monitoramento: AWS WAF, CloudWatch, IAM
 
