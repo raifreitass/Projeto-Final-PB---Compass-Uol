@@ -190,7 +190,8 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 
 
 
-(foto do diagrama)
+![image](https://github.com/user-attachments/assets/33d03f3a-ea2b-4ac4-ba99-b4a72bc02450)
+
 
 
 # Estimativa de custos com AWS Calculator 
