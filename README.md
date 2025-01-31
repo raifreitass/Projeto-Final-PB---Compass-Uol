@@ -209,6 +209,19 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 ![image](https://github.com/user-attachments/assets/3fe5f648-efd6-469d-865f-a72ee8116428)
 
 
+# Tecnologias Utilizadas 
+
+## Fase 1: Migração para AWS
+
+- Compute & Rede: Amazon EC2, VPC, Route 53, Load Balancer
+- Banco & Armazenamento: Amazon RDS (MySQL), S3, EBS, AWS Backup
+- Migração & Segurança: AWS MGN, DMS, IAM
+
+## Fase 2: Modernização com Kubernetes
+
+- Orquestração: Amazon EKS, Fargate, ECR
+- CI/CD: AWS CodePipeline, CodeBuild, CodeDeploy
+- Segurança & Monitoramento: AWS WAF, CloudWatch, IAM
 
 
 
