@@ -190,7 +190,8 @@ Após a conclusão da etapa de modernização, a infraestrutura estará no segui
 
 
 
-![image](https://github.com/user-attachments/assets/33d03f3a-ea2b-4ac4-ba99-b4a72bc02450)
+![image](https://github.com/user-attachments/assets/20f20287-02ac-483a-b7ac-988871f6133b)
+
 
 
 
